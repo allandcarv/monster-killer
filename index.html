@@ -43,7 +43,7 @@
       <template v-if="running">
         <button class="btn attack" @click="attack(false)">Attack</button>
         <button class="btn special-attack" @click="attack(true)">Special Attack</button>
-        <button class="btn heal">Heal</button>
+        <button class="btn heal" @click="healAndHurt">Heal</button>
         <button class="btn quit" @click="running = false">Quit</button>
       </template>
       <button class="btn start-game" v-else @click="startGame">Start Game</button>
