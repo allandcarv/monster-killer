@@ -20,7 +20,7 @@
       <div class="score">
         <h1>Player</h1>
         <div class="life-bar">
-          <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife + '%'}"></div>
+          <div class="life" :class="{'danger': playerLife < 20}" :style="{width: playerLife + '%'}"></div>
         </div>
         <div>{{ playerLife }}%</div>
       </div>
@@ -28,7 +28,7 @@
       <div class="score">
         <h1>Monster</h1>
         <div class="life-bar">
-          <div class="life"></div>
+          <div class="life" :class="{'danger': monsterLife < 20}" :style="{width: monsterLife + '%'}"></div>
         </div>
         <div>{{ monsterLife }}%</div>
       </div>
@@ -41,8 +41,8 @@
 
     <div class="panel buttons">
       <template v-if="running">
-        <button class="btn attack">Attack</button>
-        <button class="btn special-attack">Special Attack</button>
+        <button class="btn attack" @click="attack(false)">Attack</button>
+        <button class="btn special-attack" @click="attack(true)">Special Attack</button>
         <button class="btn heal">Heal</button>
         <button class="btn quit" @click="running = false">Quit</button>
       </template>
